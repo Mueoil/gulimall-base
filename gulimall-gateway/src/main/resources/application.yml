@@ -1,0 +1,63 @@
+server:
+  port: 88
+
+
+spring:
+  application:
+    name: gulimall-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    gateway:
+      routes:
+#        - id: baidu_route
+#          uri: https://www.baidu.com    #模糊查询，只要浏览器/baidu 即可跳转
+#          predicates:
+#            - Query=url,baidu
+#        - id: qq_route
+#          uri: https://www.qq.com
+#          predicates:
+#            - Query=url,qq
+
+#        产品服务
+        - id: product_route
+          uri: lb://gulimall-product
+          predicates:
+            - Path=/api/product/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}  #api下的所有请求，api前缀去掉
+#        会员服务
+        - id: member_route
+          uri: lb://gulimall-member
+          predicates:
+            - Path=/api/member/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}  #api下的所有请求，api前缀去掉
+#        仓库服务
+        - id: ware_route
+          uri: lb://gulimall-ware
+          predicates:
+            - Path=/api/ware/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}  #api下的所有请求，api前缀去掉
+#        第三方服务
+        - id: third_party_route
+          uri: lb://gulimall-third-party
+          predicates:
+            - Path=/api/thirdParty/**
+          filters:
+            - RewritePath=/api/thirdParty/(?<segment>.*),/$\{segment}
+
+#         renren-fast 后端主页
+        - id: admin_route
+          uri: lb://renren-fast        #lb叫负载均衡+服务名字
+          predicates:
+            - Path=/api/**
+# 完整的是：http://localhost:88/api/captcha.jpg 路径重写
+#  因为本来是 http://localhost:8080/renren-fast/captcha.jpg
+#          写这个为了显示前端显示进入首页显示验证码
+          filters:
+            - RewritePath=/api/(?<segment>.*),/renren-fast/$\{segment}
+#        只要是前端项目，都带上api这个前缀
+
