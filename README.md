@@ -1,32 +1,33 @@
 # gulimall
 
-#### 介绍
-{**以下是 Gitee 平台说明，您可以替换此简介**
-Gitee 是 OSCHINA 推出的基于 Git 的代码托管平台（同时支持 SVN）。专为开发者提供稳定、高效、安全的云端软件开发协作平台
-无论是个人、团队、或是企业，都能够用 Gitee 实现代码托管、项目管理、协作开发。企业项目请看 [https://gitee.com/enterprises](https://gitee.com/enterprises)}
+秋有鱼谷粒商城-基础篇
 
-#### 软件架构
-软件架构说明
+声明：需要前端代码的直接私信
+
+#### 软件及版本
+
+- IDEA 2020.3.2
+- nacos-1.1.4
+- node.js 10.16.3
+- Mysql 8+
+- VSCode
+- 
 
 
-#### 安装教程
+#### 技术说明
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+1.  前端：Vue + ElementUi
+2.  后端：SpringCloudAlibaba + MybatisPlus + Mysql + 阿里云OSS
+
 
 #### 使用说明
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+1.  前端代码用VSCode打开，npm run dev 运行
+2.  后端clone链接，IDEA修改个别数据调通运行
 
-#### 参与贡献
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+
+
 
 
 #### 特技
